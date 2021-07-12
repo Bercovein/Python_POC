@@ -4,21 +4,16 @@ import self as self
 
 class Persona:
 
-    def __init__(self, nombre, apellido, edad):
+    def __init__(self, nombre, edad):
         self._nombre = nombre
-        self._apellido = apellido
         self._edad = edad
 
     def mostrar_detalle(self):
-        print(f'Persona: {self.nombre} {self.apellido} Edad: {self.edad}')
+        print(f'Persona: {self.nombre} Edad: {self.edad}')
 
     @property
     def nombre(self):  # getter
         return self._nombre
-
-    @property
-    def apellido(self):  # getter
-        return self._apellido
 
     @property
     def edad(self):  # getter
@@ -28,13 +23,12 @@ class Persona:
     def nombre(self, nombre):
         self._nombre = nombre
 
-    @apellido.setter
-    def apellido(self, apellido):
-        self._apellido = apellido
-
     @edad.setter
     def edad(self, edad):
         self._edad = edad
 
-    def __del__(self):
-        print(f'Persona: {self._nombre} {self._apellido}')
+    # def __del__(self):
+    #    print(f'Persona: {self._nombre}')
+
+    def __str__(self):
+        return f'Persona: {self.nombre} {self.edad}'
